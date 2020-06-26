@@ -1,0 +1,41 @@
+#player{
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	font-size:30px;
+	width:200px;
+	height:100%;
+	margin-right: 30px;
+}
+#player i{
+	align-self: center;
+	display: inline-block;
+	margin-right: 20px;
+	cursor: pointer;
+}
+.hidden_cntrl{
+	display:none!important;
+}
+.volume_audio,
+.volume_line{
+	width:50px;
+	height: 5px;
+	border-radius: 30px;
+	align-self: center;
+}
+.volume_audio{
+	overflow:hidden;
+	background-color: lightgray;
+	margin-left: 5px;
+	margin-right: 20px;
+}
+.volume_line{
+	background-color: white;
+	position: relative;
+	transition: 1s;
+}
+.volume{
+	width:30px;
+	height: 5px;
+	background-color: gray;
+}

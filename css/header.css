@@ -1,0 +1,34 @@
+.header{
+	background-color: #D89B3D;
+	width:calc(100% - 8px);
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+	border:solid 4px white;
+	border-top:none;
+	color:white;
+	z-index: 300;
+}
+.show_hide_bonuses{
+	flex-grow: 2;
+	align-self: center;
+}
+.logo_name{
+	height: 100%;
+	align-self: center;
+	flex-grow: 10;
+	font-size: 50px;
+	margin-top:30px;
+	margin-left:50px;
+}
+#cash_pointer{
+	font-size :40px;
+	color :lime;
+	text-shadow: green 0 0 4px;
+	position: absolute;
+	left:calc(50% - 30px);
+	margin-top: 10px;
+}

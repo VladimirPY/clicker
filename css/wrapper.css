@@ -1,0 +1,121 @@
+/*take on - http://css.yoksel.ru/css-rays/*/
+.wrapper_parent {
+  margin: 0;
+  overflow: hidden;
+  background: #151515;
+  background-size: cover;
+  font-size: 10px;
+  }
+.wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%
+  }
+.text {
+  position: relative;
+  z-index: 1;
+  position: absolute;
+  left: -1em;
+  right: -1em;
+  top: -1em;
+  bottom: -1em;
+  margin: auto;
+  height: 1em;
+  font: 6em/1 Lobster, Georgia, cursive;
+  text-align: center;
+  text-shadow: -1px -1px #EE8A08,
+               -2px -2px #EE8A08,
+               -1px 1px #EE8A08,
+               -2px 2px #EE8A08,
+               1px 1px #EE8A08,
+               2px 2px #EE8A08,
+               1px -1px #EE8A08,
+               2px -2px #EE8A08,
+               -3px -3px 1px #F33F15,
+               -3px 3px 1px #F33F15,
+               3px 3px 1px #F33F15,
+               3px -3px 1px #F33F15,
+               -4px -4px 1px #F33F15,
+               -4px 4px 1px #F33F15,
+               4px 4px 1px #F33F15,
+               4px -4px 1px #F33F15;
+  color: #F4CE68;
+  transition: all .7s;
+  }
+
+ul {
+  position: absolute;
+  left: -1em;
+  right: -1em;
+  top: -1em;
+  bottom: -1em;
+  margin: auto;
+  padding: 0;
+  width: 0;
+  height: 0;
+  list-style: none;
+  animation: 30s rotate infinite linear;    
+}
+li,
+li:before,
+li:after {
+  position: absolute;
+  border: 0 solid transparent;
+  border-width: 1.2em 20em;
+  border-color: transparent #EE8A08;
+  width: 0;
+  height: 0;
+  font-size: 40px;
+  }
+li {
+  left: -20em;
+  top: 50%;
+  margin-top: -1.2em;
+  transform: rotate(.1deg);
+  }
+li:before,
+li:after {
+  left: -20em;
+  top: -1.2em;
+  display: block;
+  content: "";
+}
+
+li:before {
+  transform: rotate(60deg);
+  }
+li:after {
+  transform: rotate(-60deg);
+  }
+
+li:nth-child(2){
+  transform: rotate(15deg);
+  }
+li:nth-child(2),
+li:nth-child(2):before,
+li:nth-child(2):after {
+  border-color: transparent #F45E04;
+  }
+li:nth-child(3){
+  transform: rotate(30deg);
+  }
+li:nth-child(3),
+li:nth-child(3):before,
+li:nth-child(3):after {
+  border-color: transparent #F33F15;
+  }
+li:nth-child(4){
+  transform: rotate(45deg);
+  }
+li:nth-child(4),
+li:nth-child(4):before,
+li:nth-child(4):after {
+  border-color: transparent #7B8F64;
+  }
+
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,13 +1,7 @@
-store_button.addEventListener("click",storeMenu); 
 cash_button.addEventListener("click",cashConvert); 
-close_menu.addEventListener("click",closeMenu);
 pineapple.addEventListener("click",countClickes);
 pineapple.addEventListener("mouseover",sizeUpPineapple);
 pineapple.addEventListener("mouseout",sizeDownPineapple);
-
-function storeMenu(){
-	store_menu.style.transform = "translateX(-300px)";
-}
 
 function cashConvert(){
 	let buf;
@@ -16,10 +10,6 @@ function cashConvert(){
 		clickes.textContent = +clickes.textContent - +buf * 10;
 		cash_pointer.textContent = parseInt(cash_pointer.textContent) + buf + "$";
 	}
-}
-
-function closeMenu(){
-	store_menu.style.transform = "translateX(300px)";
 }
 
 function countClickes(){

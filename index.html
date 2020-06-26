@@ -1,48 +1,240 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>PineClicker</title>
 	<style>
-		html,body,#load{
-			height: 100%;
-			width: 100%;
-			margin:0;
-		}
 		@keyframes roll{
-			0%{}
-			100%{
-				transform: rotate(360deg);
-			}
+			0%{transform: rotate(0deg);}
+			50%{transform: rotate(360deg);}
+			100%{transform: rotate(0deg);}
+		}
+		#load{
+			z-index:300;
+			height :100%;
+			width:100%;
+			margin:0;
+			position:absolute;
+			/*background-color:#DF7401;*/
+			display:flex;
+			justify-content:center;ё
+		}
+		#load_picture{
+			align-self:center;
+			animation:roll 3s infinite ease-in-out;
+			border-radius: 50%;
 		}
 	</style>
-
 	<link href = "fonts/css/all.css" rel = "stylesheet">
+	<link href = "css/main.css" rel = "stylesheet">
+	<link href = "css/bonuses.css" rel = "stylesheet">
+	<link href = "css/menu.css" rel = "stylesheet">
+	<link href = "css/particle.css" rel = "stylesheet">
+	<link href = "css/pineapple.css" rel = "stylesheet">
+	<link href = "css/header.css" rel = "stylesheet">
+	<link href = "css/player.css" rel = "stylesheet">
+	<link href = "css/wrapper.css" rel = "stylesheet">
+	<script defer src="js/game_play.js"></script>
+	<script defer src="js/menu.js"></script>
+	<script defer src="js/particles.js"></script>
+	<script defer src="js/slider.js"></script>
+	<script defer src="js/player.js"></script>
+	<script defer src="js/bonuses.js"></script>
+	<script defer src="js/themes.js"></script>
+	<script defer src="js/fullscreen.js"></script>
 </head>
 <body>
-	<div id = "load">
-		<img id = "load_picture" src="images/slice.png">
+	<script async src="js/load.js"></script>
+	<div style = "z-index: 3000;" id = "load">
+		<img id = 'load_picture' src='images/slice.png'>
 	</div>
-	<div id = "cash_pointer">0 $</div>
-	<div id ="container_pineapple">
-		<div id = "clickes">0</div>
-		<img id = "pineapple" src="https://avatanplus.com/files/resources/mid/59626c5cf0dac15d28774b3b.png">
+	<audio id = "audio_player" >
+		<source src="music/dumb1.mp3">
+		<source src="music/dumb2.mp3">
+		<source src="music/dumb3.mp3">
+		<source src="music/dumb4.mp3">	
+	</audio>
+	<div class = "insec">
+		<i class="far fa-clock"></i>
+		<span></span>
+	</div>
+	<i id = "fullscreen" class="fas fa-arrows-alt"></i>
+	<i id = "notfullscreen" class="fas fa-compress-arrows-alt"></i>
 		
+	<!--TEMPLATE-->
+	<template id = "particle_template">
+		<div> 
+			<img class = "image_particle" src="images/slice.png">
+		</div>
+	</template>
+	<!--MAIN-->
+	<div class = "header">
+		<h1 class = "logo_name">PineClicker</h1>
+		<div id = "cash_pointer">0 $</div>
+		<div id = "player">
+			<i class="fas fa-angle-double-left"></i>
+			<i class="fas fa-play"></i>
+			<i class="fas fa-pause hidden_cntrl"></i>
+			<i class="fas fa-stop"></i>
+			<i class="fas fa-angle-double-right"></i>
+			<i class="fas fa-volume-up"></i><div class = "volume"></div>
+		</div>
+	</div>
+	<div class = "wrapper_parent">
+		<div class="wrapper">
+    		<ul>
+    			<li></li>
+   		 		<li></li>
+    			<li></li>
+    			<li></li>
+  			</ul>  
+  		</div>
+	</div>
+		
+	<div id ="container_pineapple">
+		<div id = "clickes">&nbsp;<span>0</span>&nbsp;</div>
+		<img id = "pineapple" src="images/pineapple_dark.png">
 		<button id = "cash_button">covert $</button>
 	</div>
-	<i id = "store_button" class="fas fa-shopping-cart"></i>
-	<div id = "store_menu">
-		<i id = "close_menu" class="fas fa-arrow-right"></i>
-		<p>Will be soon...</p>
+	<!--BONUSES-->
+	<div class = "bonus money_bonuses">
+		<span class = "text_bonus m">Money bonuses:</span>
+		<div class = "bonus_box"><i class="fas fa-dollar-sign">2</i></div>
+		<div class = "bonus_box"><i class="fas fa-dollar-sign">3</i></div>
+		<div class = "bonus_box"><i class="fas fa-dollar-sign">5</i></div>
+		<i class="fas fa-chevron-up"></i>
 	</div>
-	<script  src="clicker.js"></script>
-	<script  src="onclickes.js"></script>
-	<script>
-		let time = new Date();
-		let timeAct = time;
-		while(timeAct - time <= 5000){
-			timeAct = new Date();
-		}	
-	</script>
-	<script  src="load.js"></script>
+	<div class = "bonus clicks_bonuses">
+		<span class = "text_bonus c">Clicks bonuses:</span>
+		<div class = "bonus_box"><i class="far fa-hand-point-up">2</i></div>
+		<div class = "bonus_box"><i class="far fa-hand-point-up">5</i></div>
+		<div class = "bonus_box"><i class="far fa-hand-point-up">10</i></div>
+		<i class="fas fa-chevron-up"></i>
+	</div>
+	<!--MENU-->
+	<!--shop-->
+	<div class = "bottom_menu">
+		<div class = "card_menu">
+			<div class = "close_button">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class = "temp menu_title ">
+				<i class="fas fa-shopping-cart temp2"></i>
+				<span class = "temp2">Shop</span>
+			</div>
+			<div class = "block_buy_container">
+				<div class = "block_buy temp2">
+					<span class = 'temp3'>Buy money bonuses:</span>
+					<div class = "buy_hover">
+						<div class = "money_bonus_buy"><p>2$/10</div>
+						<span class = "price money">20$</span>
+						<hr>
+					</div>
+					<div class = "buy_hover">
+						<div class = "money_bonus_buy"><p>3$/10</div>
+						<span class = "price money">40$</span>
+						<hr>
+					</div>
+					<div class = "buy_hover">
+						<div class = "money_bonus_buy"><p>5$/10</div>
+						<span class = "price money">60$</span>
+						<hr>
+					</div>
+				</div>
+				<div class = "block_buy temp2">
+					<span class = 'temp3'>Buy click bonuses:</span>
+					<div class = "buy_hover">
+						<div class = "clicks_bonus_buy"><p>x2</div>
+						<span class = "price click">10$</span>
+						<hr>
+					</div>
+					<div class = "buy_hover">
+						<div class = "clicks_bonus_buy"><p>x5</div>
+						<span class = "price click">30$</span>
+						<hr>
+					</div>
+					<div class = "buy_hover">
+						<div class = "clicks_bonus_buy"><p>x10</div>
+						<span class = "price click">50$</span>
+						<hr>
+					</div>
+				</div>
+			</div>	
+			<div class = "click_insec_buy temp3">Autoclick in <span></span> seconds</div>
+			<span class = "insec_price temp3">100$</span>
+		</div>
+		<!--setting-->
+		<div class = "card_menu"> 
+			<div class = "close_button">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class = "temp menu_title ">
+				<i  class="fas fa-cog temp2"></i>
+				<span class = "temp2">Settings</span>
+			</div>
+			<div class = "settings_container temp3">
+				<div class = "settings_block temp3">
+					<img  class = "temp3" src="images/theme_dark.png">
+					<span class = "temp3">Dark theme</span>
+				</div>
+				<div class = "settings_block temp3">
+					<img  class = "temp3"src="images/theme_light.png">
+					<span class = "temp3">Light theme</span>
+				</div>
+				<hr  class = "settings_block temp3" style = "border:solid 3px white;width:99%;">
+				<div class = "settings_block temp3">
+					<img  class = "temp3"src="images/load1.png">
+					<span class = "temp3">1st load</span>
+				</div>
+				<div class = "settings_block temp3">
+					<img class = "temp3"src="images/load2.png">
+					<span class = "temp3">2nd load</span>
+				</div>
+			</div>
+		</div> 
+		<!--guide-->
+		<div class = "card_menu">
+			<div class = "close_button_left">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class = "temp menu_title ">
+				<i class="fas fa-graduation-cap temp2"></i>
+				<span class = "temp2">Guide</span>
+			</div>
+			<i class="fas fa-chevron-up temp3 slide_button"></i>
+			<div class = "guide_slider temp3">
+					<div class = "guide_box temp3">
+						<img  class = "temp3 first_img" src="images/pine_guide.png">
+						<span class = "temp3" >Press on pineaple and gain a click.
+							<p>You can see your clicks over the pineapple.</p></span>
+					</div>
+					<div class = "guide_box temp3">
+						<img class = "temp3 second_img" src="images/convert_guide.png">
+						<span class = "temp3">This button converts your clicks to money.</span>
+					</div>
+					<div class = "guide_box temp3"> 
+						<img  class = "temp3 third_img" src="images/player_guide.png">
+						<span class = "temp3" >Music player controller.</span>
+					</div>
+					<div class = "guide_box temp3">
+						<img class = "temp3 fourth_img"  src="images/bonuses_guide.png">
+						<span class = "temp3" >Fields show money and clicks bonuses
+							<p>(Active and no active)</p></span>
+					</div>
+			</div>
+			<i class="fas fa-chevron-down temp3 slide_button"></i>
+		</div>
+		<!--author-->
+		<div class = "card_menu">
+			<div class = "close_button_left">
+				<i class="fas fa-times"></i>
+			</div>
+			<div class = "temp menu_title ">
+				<i class="fas fa-gamepad temp2"></i>
+				<span class = "temp2">Author</span>
+			</div>
+			<img src="images/author.png" class = "author_img temp3">
+			<span class = "author_description temp3">Some words about author.....</span>
+		</div>
+	</div>
 </body>
 </html>

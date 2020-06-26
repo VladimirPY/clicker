@@ -1,0 +1,30 @@
+#pineapple{
+	width:90%;
+	height:350px;
+	align-self:center;
+	cursor:pointer;
+	transition:.5s;
+}
+#container_pineapple{
+	display:flex;
+	flex-direction:column;
+	justify-content:space-around;
+	width:220px;
+	position:absolute;
+	top:calc(50% - 200px);
+	left:calc(50% - 110px);
+}
+#cash_button{
+	background-color:black;
+	width :100px;
+	height :40px;
+	border-radius :10px;
+	outline :none;
+	color :white;
+	font-size :15px;
+	border-color :#FFFF00;
+	align-self :center;
+	margin-top :20px;
+	margin-left: 20px;
+	cursor:pointer;
+}
