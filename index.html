@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html,body,#load{
+			height: 100%;
+			width: 100%;
+			margin:0;
+		}
+		@keyframes roll{
+			0%{}
+			100%{
+				transform: rotate(360deg);
+			}
+		}
+	</style>
+
+	<link href = "fonts/css/all.css" rel = "stylesheet">
+</head>
+<body>
+	<div id = "load">
+		<img id = "load_picture" src="images/slice.png">
+	</div>
+	<div id = "cash_pointer">0 $</div>
+	<div id ="container_pineapple">
+		<div id = "clickes">0</div>
+		<img id = "pineapple" src="https://avatanplus.com/files/resources/mid/59626c5cf0dac15d28774b3b.png">
+		
+		<button id = "cash_button">covert $</button>
+	</div>
+	<i id = "store_button" class="fas fa-shopping-cart"></i>
+	<div id = "store_menu">
+		<i id = "close_menu" class="fas fa-arrow-right"></i>
+		<p>Will be soon...</p>
+	</div>
+	<script  src="clicker.js"></script>
+	<script  src="onclickes.js"></script>
+	<script>
+		let time = new Date();
+		let timeAct = time;
+		while(timeAct - time <= 5000){
+			timeAct = new Date();
+		}	
+	</script>
+	<script  src="load.js"></script>
+</body>
+</html>
